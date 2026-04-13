@@ -40,7 +40,7 @@ npx playwright install --with-deps
 
 ```bash
 # .env
-STAGING_LANDING_URL=https://www.liveklass.com/test/stage
+STAGING_LANDING_URL=https://your-staging-url.com
 ```
 
 > `.env` 파일은 `.gitignore`에 포함되어 있어 커밋되지 않습니다.
