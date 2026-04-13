@@ -17,7 +17,6 @@ test.describe('랜딩 페이지 - 주요 버튼 노출', () => {
   });
 
   test('[무료로 시작하기] 버튼이 보인다', async ({ page }) => {
-    await page.goto(URL);
     await page.goto('/');
     const startBtn = page.getByRole('link', { name: /무료로 시작하기/ }).or(
       page.getByRole('button', { name: /무료로 시작하기/ })
