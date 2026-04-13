@@ -1,1 +1,122 @@
-# liveklass-E2E-staging
+# liveklass E2E Testing (Staging)
+
+Playwright + Allure 기반 E2E 테스트 프로젝트입니다.
+테스트 결과는 GitHub Pages를 통해 자동으로 웹으로 배포됩니다.
+
+**Allure 리포트:** https://futureschole-ai-all.github.io/liveklass-E2E-staging/
+
+---
+
+## 기술 스택
+
+| 도구 | 용도 |
+|------|------|
+| [Playwright](https://playwright.dev) | E2E 테스트 실행 |
+| [Allure](https://allurereport.org) | 테스트 결과 리포트 시각화 |
+| GitHub Actions | CI 자동화 |
+| GitHub Pages | 리포트 웹 배포 |
+
+---
+
+## 로컬 환경 설정
+
+### 사전 요구사항
+- Node.js 20 이상
+- Allure CLI ([설치 가이드](https://allurereport.org/docs/install/))
+
+### 설치
+
+```bash
+# 의존성 설치
+npm install
+
+# Playwright 브라우저 설치
+npx playwright install --with-deps
+```
+
+### 환경변수 설정
+
+프로젝트 루트에 `.env` 파일을 생성합니다.
+
+```bash
+# .env
+STAGING_LANDING_URL=https://www.liveklass.com/test/stage
+```
+
+> `.env` 파일은 `.gitignore`에 포함되어 있어 커밋되지 않습니다.
+> 팀원에게 URL 값은 별도로 공유해주세요.
+
+---
+
+## 실행 방법
+
+```bash
+# 테스트 실행
+npm test
+
+# UI 모드로 실행 (디버깅용)
+npm run test:ui
+
+# Allure 리포트 생성
+npm run allure:report
+
+# Allure 리포트 로컬에서 열기
+npm run allure:open
+```
+
+---
+
+## 테스트 구조
+
+```
+tests/
+  landing.spec.ts    # 랜딩 페이지 주요 버튼 노출 검증
+```
+
+### 실행 브라우저
+
+| 구분 | 브라우저 |
+|------|----------|
+| Desktop | Chrome, Firefox, Safari, Edge |
+| Mobile | Pixel 5, iPhone 13, iPhone SE, Galaxy S9+ |
+
+---
+
+## CI/CD 흐름
+
+```
+코드 push (main)
+      ↓
+GitHub Actions 트리거
+      ↓
+Playwright 테스트 실행 (8개 브라우저)
+      ↓
+Allure 리포트 생성
+      ↓
+gh-pages 브랜치에 배포
+      ↓
+GitHub Pages에서 리포트 웹으로 확인 가능
+```
+
+push 하면 자동으로 위 과정이 실행됩니다.
+수동 실행은 GitHub → Actions → **E2E Tests & Allure Report** → **Run workflow**
+
+---
+
+## GitHub Secrets 설정
+
+CI에서 환경변수를 사용하려면 GitHub Secrets 등록이 필요합니다.
+
+**Settings → Secrets and variables → Actions → New repository secret**
+
+| Name | Value |
+|------|-------|
+| `STAGING_LANDING_URL` | staging 환경 URL |
+
+---
+
+## 새 테스트 시나리오 추가 방법
+
+1. `tests/` 디렉토리에 `*.spec.ts` 파일 생성
+2. 로컬에서 `npm test`로 동작 확인
+3. `main` 브랜치에 push → 자동으로 CI 실행 및 리포트 배포
