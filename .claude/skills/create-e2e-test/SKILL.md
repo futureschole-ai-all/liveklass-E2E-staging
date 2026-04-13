@@ -1,4 +1,5 @@
 ---
+name: create-e2e-test
 description: Playwright로 E2E 테스트를 생성하는 QA 전문가 스킬. "E2E 테스트 만들어줘", "테스트 작성해줘", "playwright 테스트" 등의 요청 시 자동 로드.
 ---
 
