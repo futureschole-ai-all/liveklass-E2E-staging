@@ -49,6 +49,8 @@ jobs:
       - name: Run E2E tests
         run: npm test
         continue-on-error: true # 테스트 실패해도 리포트는 생성
+        env:
+          STAGING_LANDING_URL: ${{ secrets.STAGING_LANDING_URL }}
 
       - name: Generate Allure report
         if: always()

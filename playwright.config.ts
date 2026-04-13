@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   outputDir: './test-results',
   use: {
-    baseURL: 'https://www.liveklass.com/test/stage',
+    baseURL: process.env.STAGING_LANDING_URL,
     trace: 'retain-on-failure',
     headless: true,
     screenshot: 'only-on-failure',
