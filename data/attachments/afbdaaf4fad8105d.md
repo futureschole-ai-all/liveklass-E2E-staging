@@ -1,0 +1,698 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: landing.spec.ts >> 랜딩 페이지 - 주요 버튼 노출 >> [로그인] 버튼이 보인다
+- Location: tests/landing.spec.ts:4:7
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: /로그인/ }).or(getByRole('button', { name: /로그인/ })).first()
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByRole('link', { name: /로그인/ }).or(getByRole('button', { name: /로그인/ })).first()
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - navigation [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link [ref=e9] [cursor=pointer]:
+            - /url: ./
+          - button "Close Menu" [active] [ref=e11] [cursor=pointer]
+        - generic [ref=e15]:
+          - generic [ref=e18] [cursor=pointer]:
+            - paragraph [ref=e20]: 주요 기능
+            - img [ref=e26]
+          - generic [ref=e30] [cursor=pointer]:
+            - paragraph [ref=e32]: 서비스
+            - img [ref=e38]
+          - link "가격안내" [ref=e42]:
+            - /url: ./pricing
+            - paragraph [ref=e44]: 가격안내
+          - generic [ref=e47] [cursor=pointer]:
+            - paragraph [ref=e49]: 스토리
+            - img [ref=e55]
+          - generic [ref=e59] [cursor=pointer]:
+            - paragraph [ref=e61]: 커뮤니티
+            - img [ref=e67]
+          - link "운영 가이드" [ref=e71]:
+            - /url: https://guide-kr.liveklass.com/
+            - paragraph [ref=e73]: 운영 가이드
+          - link "어워즈" [ref=e76]:
+            - /url: ./awards
+            - paragraph [ref=e78]: 어워즈
+        - generic [ref=e80]:
+          - link "로그인" [ref=e82] [cursor=pointer]:
+            - /url: https://sso.liveklass.com/login?query=%7B%22next%22%3A%22%2Fcreator%2Fsite%2Fcreate%22%7D
+            - paragraph [ref=e84]: 로그인
+          - link "무료로 시작하기" [ref=e86] [cursor=pointer]:
+            - /url: https://sso.liveklass.com/creator/signup
+            - paragraph [ref=e88]: 무료로 시작하기
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e96]: Your browser does not support the video tag.
+          - link "지금 나만의 플랫폼 만들기" [ref=e101] [cursor=pointer]:
+            - /url: https://sso.liveklass.com/creator/signup
+            - paragraph [ref=e103]: 지금 나만의 플랫폼 만들기
+            - img [ref=e106]
+          - generic [ref=e113]:
+            - paragraph [ref=e114]:
+              - text: 온라인 클래스부터
+              - text: 마케팅 자동화와 수익창출까지!
+            - paragraph [ref=e115]: 나만의 지식과 콘텐츠를
+            - paragraph [ref=e116]: 라이브클래스로 판매해 보세요.
+        - heading "나의 지식과 경험이 비즈니스가 되는 곳" [level=1] [ref=e123]:
+          - text: 나의 지식과 경험이
+          - text: 비즈니스가 되는 곳
+      - generic [ref=e124]:
+        - generic [ref=e127]:
+          - list [ref=e130]:
+            - listitem [ref=e131]:
+              - link [ref=e133]:
+                - /url: https://chess.liveklass.com/
+            - listitem [ref=e137]:
+              - link [ref=e139]:
+                - /url: https://zipsaem.liveklass.com/
+            - listitem [ref=e143]:
+              - link [ref=e145]:
+                - /url: https://noeasyacademy.liveklass.com/
+            - listitem [ref=e149]:
+              - link [ref=e151]:
+                - /url: https://www.genesispark.co.kr/
+            - listitem [ref=e155]:
+              - link [ref=e157]:
+                - /url: https://seastar.liveklass.com/
+            - listitem [ref=e161]:
+              - link [ref=e163]:
+                - /url: https://dana.liveklass.com/
+            - listitem [ref=e167]:
+              - link [ref=e169]:
+                - /url: https://nabranding.liveklass.com/
+            - listitem [ref=e173]:
+              - link [ref=e175]:
+                - /url: https://booup1234.co.kr/
+            - listitem [ref=e179]:
+              - link [ref=e181]:
+                - /url: https://www.lvupcollege.kr/
+            - listitem [ref=e185]:
+              - link [ref=e187]:
+                - /url: https://dinoschool.liveklass.com/
+            - listitem [ref=e191]:
+              - link [ref=e193]:
+                - /url: https://chess.liveklass.com/
+            - listitem [ref=e197]:
+              - link [ref=e199]:
+                - /url: https://zipsaem.liveklass.com/
+            - listitem [ref=e203]:
+              - link [ref=e205]:
+                - /url: https://noeasyacademy.liveklass.com/
+            - listitem [ref=e209]:
+              - link [ref=e211]:
+                - /url: https://www.genesispark.co.kr/
+            - listitem [ref=e215]:
+              - link [ref=e217]:
+                - /url: https://seastar.liveklass.com/
+            - listitem [ref=e221]:
+              - link [ref=e223]:
+                - /url: https://dana.liveklass.com/
+            - listitem [ref=e227]:
+              - link [ref=e229]:
+                - /url: https://nabranding.liveklass.com/
+            - listitem [ref=e233]:
+              - link [ref=e235]:
+                - /url: https://booup1234.co.kr/
+            - listitem [ref=e239]:
+              - link [ref=e241]:
+                - /url: https://www.lvupcollege.kr/
+            - listitem [ref=e245]:
+              - link [ref=e247]:
+                - /url: https://dinoschool.liveklass.com/
+          - list [ref=e253]:
+            - listitem [ref=e254]:
+              - link [ref=e256]:
+                - /url: https://dreamschoolkr.liveklass.com/
+            - listitem [ref=e260]:
+              - link [ref=e262]:
+                - /url: https://www.anabclass.com/
+            - listitem [ref=e266]:
+              - link [ref=e268]:
+                - /url: https://jobroad1.liveklass.com/
+            - listitem [ref=e272]:
+              - link [ref=e274]:
+                - /url: https://www.reelshacker.co.kr/
+            - listitem [ref=e278]:
+              - link [ref=e280]:
+                - /url: https://www.top-teacher.co.kr/
+            - listitem [ref=e284]:
+              - link [ref=e286]:
+                - /url: https://haneypd.liveklass.com/
+            - listitem [ref=e290]:
+              - link [ref=e292]:
+                - /url: https://www.rovian.co.kr/
+            - listitem [ref=e296]:
+              - link [ref=e298]:
+                - /url: https://aryclass.liveklass.com/
+            - listitem [ref=e302]:
+              - link [ref=e304]:
+                - /url: https://topping-topper.liveklass.com/
+            - listitem [ref=e308]:
+              - link [ref=e310]:
+                - /url: https://jakjaklab.liveklass.com/
+            - listitem [ref=e314]:
+              - link [ref=e316]:
+                - /url: https://dreamschoolkr.liveklass.com/
+            - listitem [ref=e320]:
+              - link [ref=e322]:
+                - /url: https://www.anabclass.com/
+            - listitem [ref=e326]:
+              - link [ref=e328]:
+                - /url: https://jobroad1.liveklass.com/
+            - listitem [ref=e332]:
+              - link [ref=e334]:
+                - /url: https://www.reelshacker.co.kr/
+            - listitem [ref=e338]:
+              - link [ref=e340]:
+                - /url: https://www.top-teacher.co.kr/
+            - listitem [ref=e344]:
+              - link [ref=e346]:
+                - /url: https://haneypd.liveklass.com/
+            - listitem [ref=e350]:
+              - link [ref=e352]:
+                - /url: https://www.rovian.co.kr/
+            - listitem [ref=e356]:
+              - link [ref=e358]:
+                - /url: https://aryclass.liveklass.com/
+            - listitem [ref=e362]:
+              - link [ref=e364]:
+                - /url: https://topping-topper.liveklass.com/
+            - listitem [ref=e368]:
+              - link [ref=e370]:
+                - /url: https://jakjaklab.liveklass.com/
+        - link "크리에이터 성공 스토리" [ref=e377] [cursor=pointer]:
+          - /url: ./creators
+          - paragraph [ref=e379]: 크리에이터 성공 스토리
+          - img [ref=e382]
+      - generic [ref=e387]:
+        - generic [ref=e389]:
+          - generic [ref=e397]:
+            - generic [ref=e399]: "0"
+            - paragraph [ref=e401]: 명+
+          - paragraph [ref=e403]: 누적 수강 신청
+        - generic [ref=e406]:
+          - generic [ref=e414]:
+            - generic [ref=e416]: 0K
+            - paragraph [ref=e418]: +
+          - paragraph [ref=e420]: 누적 강의 개설 고객
+        - generic [ref=e423]:
+          - generic [ref=e427]:
+            - generic [ref=e429]: "0"
+            - paragraph [ref=e431]: 억원+
+          - paragraph [ref=e433]: 고객사 중 최고 월수익
+      - generic [ref=e437]:
+        - generic [ref=e438]:
+          - generic [ref=e440]:
+            - heading "나만의 지식 콘텐츠를" [level=2] [ref=e441]
+            - heading "더 쉽게, 더 빠르게💡" [level=2] [ref=e442]
+          - generic [ref=e444]:
+            - paragraph [ref=e445]: 온라인 클래스에 최적화된 노코드 플랫폼 빌더!
+            - paragraph [ref=e446]: 다양한 강의 및 지식 상품을 빠르게 만들고
+            - paragraph [ref=e447]: 수익화를 시작해 보세요.
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - list [ref=e456]:
+              - listitem [ref=e457] [cursor=pointer]: 온라인 라이브 강의
+              - listitem [ref=e458] [cursor=pointer]: 동영상 VOD 강의
+              - listitem [ref=e459] [cursor=pointer]: 1:1 코칭
+              - listitem [ref=e460] [cursor=pointer]: 디지털 콘텐츠 판매
+            - link "전체보기" [ref=e462] [cursor=pointer]:
+              - /url: ./product
+              - paragraph [ref=e464]: 전체보기
+              - img [ref=e467]
+          - generic [ref=e471]:
+            - link "온라인 라이브 강의 다양한 실시간 라이브 강의를 편리하게" [ref=e474]:
+              - /url: ./product#01
+              - generic [ref=e479]:
+                - heading "온라인 라이브 강의" [level=1] [ref=e481]
+                - paragraph [ref=e484]: 다양한 실시간 라이브 강의를 편리하게
+            - link "온라인 VOD 강의 손쉽게 온라인 VOD 강의를 수익화 할 수 있습니다" [ref=e487]:
+              - /url: ./product#02
+              - generic [ref=e492]:
+                - heading "온라인 VOD 강의" [level=1] [ref=e494]
+                - paragraph [ref=e497]: 손쉽게 온라인 VOD 강의를 수익화 할 수 있습니다
+            - link "1:1 코칭 수강생의 요구에 맞춘 1:1 솔루션으로 더 깊은 가치" [ref=e500]:
+              - /url: ./product#03
+              - generic [ref=e505]:
+                - heading "1:1 코칭" [level=1] [ref=e507]
+                - paragraph [ref=e510]: 수강생의 요구에 맞춘 1:1 솔루션으로 더 깊은 가치
+            - link "디지털 콘텐츠 판매 PDF, 전자책 등 다양한 디지털 콘텐츠" [ref=e513]:
+              - /url: ./product#04
+              - generic [ref=e518]:
+                - heading "디지털 콘텐츠 판매" [level=1] [ref=e520]
+                - paragraph [ref=e523]: PDF, 전자책 등 다양한 디지털 콘텐츠
+        - link "전체보기" [ref=e527] [cursor=pointer]:
+          - /url: ./product
+          - paragraph [ref=e529]: 전체보기
+          - img [ref=e532]
+        - generic [ref=e536]:
+          - generic [ref=e538]:
+            - heading "지식 비즈니스를 완성하는 All-in-one 플랫폼 빌더" [level=2] [ref=e541]:
+              - text: 지식 비즈니스를 완성하는
+              - text: All-in-one 플랫폼 빌더
+            - generic [ref=e544]:
+              - paragraph [ref=e545]: 지식 크리에이터가 필요한 것을 가장 잘 아는
+              - paragraph [ref=e546]: 솔루션 결제, 고객 관리, CRM 마케팅까지
+              - paragraph [ref=e547]: 라이브클래스 하나면 충분합니다.
+          - generic [ref=e548]:
+            - generic [ref=e549]:
+              - generic [ref=e553]:
+                - paragraph [ref=e555]: 디자인 기능, 커리큘럼 기능, 수강 신청, 진도율 관리까지 나만의 지식을 판매하기 위한 모든 기능을 제공합니다.
+                - generic [ref=e556]:
+                  - paragraph [ref=e558]: 노코드 웹사이트 빌더
+                  - img [ref=e563]
+              - img "라이브클래스-웹사이트-예시화면" [ref=e568]
+            - generic [ref=e569]:
+              - generic [ref=e573]:
+                - paragraph [ref=e575]: CRM을 통해 고객 활동을 추적하고 개인화된 마케팅 메시지를 보내보세요.
+                - generic [ref=e576]:
+                  - paragraph [ref=e578]: 회원 관리 CRM
+                  - img [ref=e583]
+              - generic [ref=e585]:
+                - paragraph [ref=e588]: 우수수강생
+                - img "라이브클래스-CRM-샘플화면" [ref=e592]
+            - generic [ref=e593]:
+              - generic [ref=e597]:
+                - paragraph [ref=e599]: GA, 메타 픽셀 등과 손쉽게 연동하고 퍼널 분석을 통해 전환 성과를 극대화해보세요
+                - generic [ref=e600]:
+                  - paragraph [ref=e602]: 마케팅 자동화
+                  - img [ref=e607]
+              - img "라이브클래스-마케팅자동화-예시" [ref=e612]
+            - generic [ref=e613]:
+              - generic [ref=e617]:
+                - paragraph [ref=e619]: 수익 흐름을 효율적으로 분석하고 체계적으로 관리하여, 더 나은 비즈니스 전략을 수립하세요
+                - generic [ref=e620]:
+                  - paragraph [ref=e622]: 매출 관리 솔루션
+                  - img [ref=e627]
+              - img "라이브클래스-매출관리화면-예시" [ref=e632]
+      - generic [ref=e634]:
+        - generic [ref=e635]:
+          - generic [ref=e636]:
+            - heading "크리에이터를 위한 독립 플랫폼" [level=2] [ref=e639]:
+              - text: 크리에이터를 위한
+              - text: 독립 플랫폼
+            - generic [ref=e641]:
+              - paragraph [ref=e642]: 나만의 브랜드 사이트와 커뮤니티를 만들어 보세요
+              - paragraph [ref=e643]: 고객 데이터 기반으로 놀라운 성장을 경험할 수 있습니다
+          - generic [ref=e645]:
+            - img "크리에이터-온라인클래스-강의" [ref=e647]
+            - generic [ref=e650]:
+              - paragraph [ref=e652]: 7월 입금 금액
+              - paragraph [ref=e654]: 1,340만원
+        - generic [ref=e656]:
+          - generic [ref=e657]:
+            - generic [ref=e658]:
+              - generic [ref=e659]:
+                - heading "자유롭게 설계하는" [level=3] [ref=e660]
+                - heading "나만의 플랫폼" [level=3] [ref=e661]
+              - img "라이브클래스-설계화면" [ref=e665]
+            - heading "고객 데이터의 주체적인 관리" [level=3] [ref=e668]:
+              - text: 고객 데이터의
+              - text: 주체적인 관리
+            - heading "나와 팬을 이어주는 진정한 커뮤니티" [level=3] [ref=e676]:
+              - text: 나와 팬을 이어주는
+              - text: 진정한 커뮤니티
+          - link "무료로 시작하기" [ref=e680] [cursor=pointer]:
+            - /url: https://sso.liveklass.com/creator/signup
+            - paragraph [ref=e682]: 무료로 시작하기
+            - img [ref=e685]
+      - generic [ref=e688]:
+        - generic [ref=e690]:
+          - heading "크리에이터들이 신뢰하는 플랫폼" [level=2] [ref=e694]:
+            - text: 크리에이터들이
+            - text: 신뢰하는 플랫폼
+          - generic [ref=e701]:
+            - generic [ref=e702]:
+              - 'link "더 보기 이윤구 멘토 드림스쿨 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요. #대한민국NO.1 공부법 #변호사" [ref=e705] [cursor=pointer]':
+                - /url: ./story/드림스쿨-이윤규변호사-공부법강의
+                - generic [ref=e706]:
+                  - link "더 보기" [ref=e710]:
+                    - img [ref=e713]
+                  - generic [ref=e716]:
+                    - generic [ref=e717]:
+                      - generic [ref=e718]:
+                        - generic [ref=e719]:
+                          - paragraph [ref=e721]: 이윤구
+                          - paragraph [ref=e723]: 멘토
+                        - paragraph [ref=e725]: 드림스쿨
+                      - paragraph [ref=e728]: 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요.
+                    - paragraph [ref=e731]: "#대한민국NO.1 공부법 #변호사"
+              - 'link "더 보기 김주황 대표 패스파인더 / 디자이너창업 클래스 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다. #디자이너 #사업가 #1억매출의비결" [ref=e734] [cursor=pointer]':
+                - /url: ./story/패스파인더스-디자이너-비즈니스코칭
+                - generic [ref=e735]:
+                  - link "더 보기" [ref=e739]:
+                    - img [ref=e742]
+                  - generic [ref=e745]:
+                    - generic [ref=e746]:
+                      - generic [ref=e747]:
+                        - generic [ref=e748]:
+                          - paragraph [ref=e750]: 김주황
+                          - paragraph [ref=e752]: 대표
+                        - paragraph [ref=e754]: 패스파인더 / 디자이너창업 클래스
+                      - paragraph [ref=e757]: 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다.
+                    - paragraph [ref=e760]: "#디자이너 #사업가 #1억매출의비결"
+              - 'link "더 보기 최영은 대표 토핑토퍼 / 플라워토퍼 클래스 “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요.\" #5억매출 #토핑토퍼 #페이퍼크래프트" [ref=e763] [cursor=pointer]':
+                - /url: ./story/토핑토퍼-플라워토퍼-취미부업-창업
+                - generic [ref=e764]:
+                  - link "더 보기" [ref=e768]:
+                    - img [ref=e771]
+                  - generic [ref=e774]:
+                    - generic [ref=e775]:
+                      - generic [ref=e776]:
+                        - generic [ref=e777]:
+                          - paragraph [ref=e779]: 최영은
+                          - paragraph [ref=e781]: 대표
+                        - paragraph [ref=e783]: 토핑토퍼 / 플라워토퍼 클래스
+                      - paragraph [ref=e786]: “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요."
+                    - paragraph [ref=e789]: "#5억매출 #토핑토퍼 #페이퍼크래프트"
+              - 'link "더 보기 이윤구 멘토 드림스쿨 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요. #대한민국NO.1 공부법 #변호사" [ref=e792] [cursor=pointer]':
+                - /url: ./story/드림스쿨-이윤규변호사-공부법강의
+                - generic [ref=e793]:
+                  - link "더 보기" [ref=e797]:
+                    - img [ref=e800]
+                  - generic [ref=e803]:
+                    - generic [ref=e804]:
+                      - generic [ref=e805]:
+                        - generic [ref=e806]:
+                          - paragraph [ref=e808]: 이윤구
+                          - paragraph [ref=e810]: 멘토
+                        - paragraph [ref=e812]: 드림스쿨
+                      - paragraph [ref=e815]: 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요.
+                    - paragraph [ref=e818]: "#대한민국NO.1 공부법 #변호사"
+              - 'link "더 보기 김주황 대표 패스파인더 / 디자이너창업 클래스 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다. #디자이너 #사업가 #1억매출의비결" [ref=e821] [cursor=pointer]':
+                - /url: ./story/패스파인더스-디자이너-비즈니스코칭
+                - generic [ref=e822]:
+                  - link "더 보기" [ref=e826]:
+                    - img [ref=e829]
+                  - generic [ref=e832]:
+                    - generic [ref=e833]:
+                      - generic [ref=e834]:
+                        - generic [ref=e835]:
+                          - paragraph [ref=e837]: 김주황
+                          - paragraph [ref=e839]: 대표
+                        - paragraph [ref=e841]: 패스파인더 / 디자이너창업 클래스
+                      - paragraph [ref=e844]: 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다.
+                    - paragraph [ref=e847]: "#디자이너 #사업가 #1억매출의비결"
+              - 'link "더 보기 최영은 대표 토핑토퍼 / 플라워토퍼 클래스 “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요.\" #5억매출 #토핑토퍼 #페이퍼크래프트" [ref=e850] [cursor=pointer]':
+                - /url: ./story/토핑토퍼-플라워토퍼-취미부업-창업
+                - generic [ref=e851]:
+                  - link "더 보기" [ref=e855]:
+                    - img [ref=e858]
+                  - generic [ref=e861]:
+                    - generic [ref=e862]:
+                      - generic [ref=e863]:
+                        - generic [ref=e864]:
+                          - paragraph [ref=e866]: 최영은
+                          - paragraph [ref=e868]: 대표
+                        - paragraph [ref=e870]: 토핑토퍼 / 플라워토퍼 클래스
+                      - paragraph [ref=e873]: “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요."
+                    - paragraph [ref=e876]: "#5억매출 #토핑토퍼 #페이퍼크래프트"
+              - 'link "더 보기 이윤구 멘토 드림스쿨 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요. #대한민국NO.1 공부법 #변호사" [ref=e879] [cursor=pointer]':
+                - /url: ./story/드림스쿨-이윤규변호사-공부법강의
+                - generic [ref=e880]:
+                  - link "더 보기" [ref=e884]:
+                    - img [ref=e887]
+                  - generic [ref=e890]:
+                    - generic [ref=e891]:
+                      - generic [ref=e892]:
+                        - generic [ref=e893]:
+                          - paragraph [ref=e895]: 이윤구
+                          - paragraph [ref=e897]: 멘토
+                        - paragraph [ref=e899]: 드림스쿨
+                      - paragraph [ref=e902]: 유튜브로 좋은 반응을 얻었고, 책 출간 이후 더 뜨거운 반응을 보내주셨어요. 그래서 수강생 분들에게 더 다가가고 싶었죠. 유튜브나 동영상 강좌는 언제든지 들을 수 있어 미루게 되는데, 라이브클래스에서 유료 라이브로 진행하니 수강생들의 집중도와 의지가 확연히 다른 거에요.
+                    - paragraph [ref=e905]: "#대한민국NO.1 공부법 #변호사"
+              - 'link "더 보기 김주황 대표 패스파인더 / 디자이너창업 클래스 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다. #디자이너 #사업가 #1억매출의비결" [ref=e908] [cursor=pointer]':
+                - /url: ./story/패스파인더스-디자이너-비즈니스코칭
+                - generic [ref=e909]:
+                  - link "더 보기" [ref=e913]:
+                    - img [ref=e916]
+                  - generic [ref=e919]:
+                    - generic [ref=e920]:
+                      - generic [ref=e921]:
+                        - generic [ref=e922]:
+                          - paragraph [ref=e924]: 김주황
+                          - paragraph [ref=e926]: 대표
+                        - paragraph [ref=e928]: 패스파인더 / 디자이너창업 클래스
+                      - paragraph [ref=e931]: 라이브클래스를 통해 수업을 만들고 운영하는 과정을 체계적으로 경험하다 보니, 저만의 콘텐츠를 안정적인 수익 모델로 전환할 수 있다는 걸 깨달았습니다.
+                    - paragraph [ref=e934]: "#디자이너 #사업가 #1억매출의비결"
+              - 'link "더 보기 최영은 대표 토핑토퍼 / 플라워토퍼 클래스 “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요.\" #5억매출 #토핑토퍼 #페이퍼크래프트" [ref=e937] [cursor=pointer]':
+                - /url: ./story/토핑토퍼-플라워토퍼-취미부업-창업
+                - generic [ref=e938]:
+                  - link "더 보기" [ref=e942]:
+                    - img [ref=e945]
+                  - generic [ref=e948]:
+                    - generic [ref=e949]:
+                      - generic [ref=e950]:
+                        - generic [ref=e951]:
+                          - paragraph [ref=e953]: 최영은
+                          - paragraph [ref=e955]: 대표
+                        - paragraph [ref=e957]: 토핑토퍼 / 플라워토퍼 클래스
+                      - paragraph [ref=e960]: “20분짜리 강의 하나를 만들기 위해 일주일을 고군분투했던 시절이 있었어요. 촬영도, 편집도, 심지어 강의 설계조차 막막했던 시절, 라이브클래스는 1인 기업이 모든 걸 혼자서도 관리할 수 있는 맞춤형 도구였어요."
+                    - paragraph [ref=e963]: "#5억매출 #토핑토퍼 #페이퍼크래프트"
+            - generic [ref=e964]:
+              - button "go to Slide 1" [ref=e965] [cursor=pointer]
+              - button "go to Slide 2" [ref=e966] [cursor=pointer]
+              - button "go to Slide 3" [ref=e967] [cursor=pointer]
+        - generic [ref=e968]:
+          - heading "라이브클래스로 온라인 지식 비즈니스의 성장을 만든 크리에이터들의 이야기를 확인해 보세요." [level=4] [ref=e973]:
+            - text: 라이브클래스로 온라인 지식
+            - generic [ref=e974]:
+              - text: 비즈니스의 성장을 만든 크리에이터들의
+              - text: 이야기를 확인해 보세요.
+          - generic [ref=e975]:
+            - generic [ref=e977]:
+              - 'link "은코치 : 사장님의 매출을 높여주는 페이스메이커 광고대행에 의존하던 사장님들을, 스스로 매출 변화를 만드는 주체로 성장시킨 은코치의 플레이스 마케팅 성장 스토리" [ref=e978]':
+                - /url: ./story/eunkochi
+                - generic [ref=e986]:
+                  - paragraph [ref=e989]: "은코치 : 사장님의 매출을 높여주는 페이스메이커"
+                  - paragraph [ref=e991]: 광고대행에 의존하던 사장님들을, 스스로 매출 변화를 만드는 주체로 성장시킨 은코치의 플레이스 마케팅 성장 스토리
+              - 'link "더노아아카데미 : 손님들의 지갑을 열게 하는 글쓰기의 힘 1:1 컨설팅 경험이 녹아든 실전 블로그 글쓰기 노하우로 ''마케팅 독립''이라는 평생 자산을 만들어가는 여정" [ref=e992]':
+                - /url: ./story/thenoah
+                - generic [ref=e1000]:
+                  - paragraph [ref=e1003]: "더노아아카데미 : 손님들의 지갑을 열게 하는 글쓰기의 힘"
+                  - paragraph [ref=e1005]: 1:1 컨설팅 경험이 녹아든 실전 블로그 글쓰기 노하우로 '마케팅 독립'이라는 평생 자산을 만들어가는 여정
+              - 'link "퀸메이커 : ''나''를 찾은 엄마 크리에이터, 티아라로 여왕을 만들다 완벽한 준비 대신 용기 있는 도전 선택! 티아라 창작으로 육아맘들을 조연에서 주인공으로 바꾼 성공 스토리" [ref=e1006]':
+                - /url: ./story/queen-maker
+                - generic [ref=e1014]:
+                  - paragraph [ref=e1017]: "퀸메이커 : '나'를 찾은 엄마 크리에이터, 티아라로 여왕을 만들다"
+                  - paragraph [ref=e1019]: 완벽한 준비 대신 용기 있는 도전 선택! 티아라 창작으로 육아맘들을 조연에서 주인공으로 바꾼 성공 스토리
+            - link "성공 사례 더보기" [ref=e1023] [cursor=pointer]:
+              - /url: ./creators
+              - paragraph [ref=e1025]: 성공 사례 더보기
+              - img [ref=e1028]
+      - generic [ref=e1031]:
+        - generic [ref=e1032]:
+          - generic [ref=e1033]:
+            - generic [ref=e1034]:
+              - heading "지식 창업 전문가들과 함께 더 빠른 성장" [level=2] [ref=e1037]:
+                - text: 지식 창업 전문가들과
+                - text: 함께 더 빠른 성장
+              - generic [ref=e1039]:
+                - paragraph [ref=e1040]: 라이브클래스를 활용해 지식 비지니스를
+                - paragraph [ref=e1041]: 시작하는 기본 사용법은 물론
+                - paragraph [ref=e1042]: 고객을 모으는 방법까지 차근차근 알려드려요.
+            - list [ref=e1046]:
+              - listitem [ref=e1047]
+              - listitem [ref=e1050]
+              - listitem [ref=e1053]
+              - listitem [ref=e1056]
+              - listitem [ref=e1059]
+              - listitem [ref=e1062]
+              - listitem [ref=e1065]
+              - listitem [ref=e1068]
+              - listitem [ref=e1071]
+              - listitem [ref=e1074]
+              - listitem [ref=e1077]
+              - listitem [ref=e1080]
+          - link "온라인 교육 신청하기" [ref=e1086] [cursor=pointer]:
+            - /url: ./service/rocket
+            - paragraph [ref=e1088]: 온라인 교육 신청하기
+            - img [ref=e1091]
+        - generic [ref=e1094]:
+          - generic [ref=e1095]:
+            - img [ref=e1099]
+            - heading "와 함께하는 파트너" [level=2] [ref=e1102]
+          - paragraph [ref=e1104]: 토스페이먼츠, KG이니시스, 네이버, NHN KCP, AWS, KAIST 등 든든한 파트너와 함께 합니다
+        - list [ref=e1108]:
+          - listitem [ref=e1109]
+          - listitem [ref=e1112]
+          - listitem [ref=e1115]
+          - listitem [ref=e1118]
+          - listitem [ref=e1121]
+          - listitem [ref=e1124]
+          - listitem [ref=e1127]
+          - listitem [ref=e1130]
+          - listitem [ref=e1133]
+          - listitem [ref=e1136]
+          - listitem [ref=e1139]
+          - listitem [ref=e1142]
+          - listitem [ref=e1145]
+          - listitem [ref=e1148]
+      - generic [ref=e1151]:
+        - generic [ref=e1152]:
+          - paragraph [ref=e1155]: 지금 라이브클래스 시작하기
+          - generic [ref=e1157]:
+            - heading "새로운 지식 비즈니스의 시작" [level=2] [ref=e1158]:
+              - text: 새로운 지식
+              - text: 비즈니스의 시작
+            - heading "라이브클래스와" [level=2] [ref=e1159]
+            - heading "함께하세요" [level=2] [ref=e1160]
+          - link "무료로 시작하기" [ref=e1163] [cursor=pointer]:
+            - /url: https://sso.liveklass.com/creator/signup
+            - paragraph [ref=e1165]: 무료로 시작하기
+            - img [ref=e1168]
+        - generic [ref=e1172]:
+          - paragraph [ref=e1185]: 👀
+          - paragraph [ref=e1244]: 👍🏻
+          - paragraph [ref=e1251]: 📢
+          - paragraph [ref=e1258]: 👏🏻
+          - paragraph [ref=e1265]: 👩🏻‍🏫
+    - generic [ref=e1269]:
+      - generic [ref=e1270]:
+        - generic [ref=e1271]:
+          - img [ref=e1274]
+          - generic [ref=e1276]:
+            - generic [ref=e1277]:
+              - generic [ref=e1278]:
+                - generic [ref=e1279]:
+                  - paragraph [ref=e1281]: (주)퓨쳐스콜레
+                  - paragraph [ref=e1284]: "대표이사 : 신철헌"
+                - paragraph [ref=e1286]: "개인정보책임자 : 김성원"
+              - generic [ref=e1287]:
+                - paragraph [ref=e1289]: "사업자등록번호 : 356-88-01176"
+                - paragraph [ref=e1291]:
+                  - text: "통신판매업 신고번호 :"
+                  - link "제2019-서울성동-01398호" [ref=e1292] [cursor=pointer]:
+                    - /url: https://www.ftc.go.kr/bizCommPop.do?wrkr_no=3568801176
+            - paragraph [ref=e1294]: 서울시 성동구 왕십리로 115 헤이그라운드 G707
+            - paragraph [ref=e1296]: "서비스 및 기술 문의: 02-6239-1101"
+            - paragraph [ref=e1298]: "이메일: support@liveklass.com"
+        - generic [ref=e1301]:
+          - link [ref=e1302]:
+            - /url: https://www.youtube.com/@liveklass
+            - img [ref=e1304]
+          - link [ref=e1306]:
+            - /url: https://www.instagram.com/liveklass/
+            - img [ref=e1308]
+          - link [ref=e1310]:
+            - /url: https://blog.naver.com/futureschole
+            - img [ref=e1312]
+          - link [ref=e1314]:
+            - /url: https://www.facebook.com/futureschole/
+            - img [ref=e1316]
+          - link [ref=e1318]:
+            - /url: https://www.linkedin.com/company/futureschole/
+      - generic [ref=e1320]:
+        - paragraph [ref=e1322]:
+          - link "회사소개" [ref=e1323] [cursor=pointer]:
+            - /url: https://www.futureschole.com/
+        - paragraph [ref=e1325]:
+          - link "개인정보처리방침" [ref=e1326] [cursor=pointer]:
+            - /url: https://futureschole.notion.site/182031a47abd451b9f044cae6d83b42f
+        - paragraph [ref=e1328]:
+          - link "서비스이용약관" [ref=e1329] [cursor=pointer]:
+            - /url: https://futureschole.notion.site/89cddd1b7dd6462db372b0c0b69a03d9
+  - img [ref=e1330]
+  - img [ref=e1332]
+  - img [ref=e1334]
+  - img [ref=e1336]
+  - img [ref=e1338]
+  - img [ref=e1344]
+  - img [ref=e1348]
+  - img [ref=e1358]
+  - img [ref=e1362]
+  - img [ref=e1366]
+  - img [ref=e1415]
+  - img [ref=e1464]
+  - img [ref=e1469]
+  - img [ref=e1474]
+  - img [ref=e1486]
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - button "라이브클래스 Chat Button , there are unread messages" [ref=e1490]:
+            - generic [ref=e1491] [cursor=pointer]:
+              - generic [ref=e1492]: 라이브클래스 Chat Button
+              - status ", there are unread messages" [ref=e1495]
+          - dialog [ref=e1496]:
+            - article [ref=e1497]:
+              - heading "Channel Talk pop-up" [level=2] [ref=e1498]
+              - 'button "Start a Chat , from 라이브클래스 Just now , message: 개인정보처리방침 개정 안내 2026년 4월 16일(목)부터 개인정보처리방침이 개정될 예정입니다. 자세한 내용은 아래 버튼을 눌러 확인하실 수 있습니다. 본 개정 사항에 동의하지 않는 경우 거부 의사를 표시(회원 탈퇴) 할 수 있습니다. 처리방침 개정 안내 Close" [ref=e1499] [cursor=pointer]':
+                - button "Start a Chat" [ref=e1500]
+                - generic [ref=e1503]:
+                  - generic [ref=e1504]:
+                    - generic [ref=e1505]: ", from"
+                    - generic [ref=e1506]: 라이브클래스
+                    - generic [ref=e1507]: Just now
+                  - generic [ref=e1508]:
+                    - generic [ref=e1509]: ", message:"
+                    - generic [ref=e1510]:
+                      - generic [ref=e1511]: 개인정보처리방침 개정 안내
+                      - generic [ref=e1512]: 2026년 4월 16일(목)부터 개인정보처리방침이 개정될 예정입니다. 자세한 내용은 아래 버튼을 눌러 확인하실 수 있습니다.
+                      - generic [ref=e1513]: 본 개정 사항에 동의하지 않는 경우 거부 의사를 표시(회원 탈퇴) 할 수 있습니다.
+                - link "처리방침 개정 안내" [ref=e1515]:
+                  - /url: https://futureschole.notion.site/33cc7a52db4f8051bb77e9769ab34e5b
+                  - generic [ref=e1516]: 처리방침 개정 안내
+                - button "Close" [ref=e1517]:
+                  - img [ref=e1518]
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('랜딩 페이지 - 주요 버튼 노출', () => {
+  4  |   test('[로그인] 버튼이 보인다', async ({ page }) => {
+  5  |     await page.goto('/');
+  6  | 
+  7  |     // 모바일 뷰포트(768px 미만)에서는 햄버거 메뉴를 열어야 로그인 버튼이 노출됨
+  8  |     const viewportWidth = page.viewportSize()?.width ?? 1280;
+  9  |     if (viewportWidth < 768) {
+  10 |       await page.click('button[aria-label="Open Menu"]');
+  11 |     }
+  12 | 
+  13 |     const loginBtn = page.getByRole('link', { name: /로그인/ }).or(
+  14 |       page.getByRole('button', { name: /로그인/ })
+  15 |     );
+> 16 |     await expect(loginBtn.first()).toBeVisible();
+     |                                    ^ Error: expect(locator).toBeVisible() failed
+  17 |   });
+  18 | 
+  19 |   test('[무료로 시작하기] 버튼이 보인다', async ({ page }) => {
+  20 |     await page.goto('/');
+  21 |     const startBtn = page.getByRole('link', { name: /무료로 시작하기/ }).or(
+  22 |       page.getByRole('button', { name: /무료로 시작하기/ })
+  23 |     );
+  24 |     await expect(startBtn.first()).toBeVisible();
+  25 |   });
+  26 | });
+  27 | 
+```
