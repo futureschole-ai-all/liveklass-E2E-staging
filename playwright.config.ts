@@ -19,14 +19,14 @@ export default defineConfig({
   projects: [
     // Desktop
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox',  use: { ...devices['Desktop Firefox'] } },
-    { name: 'safari',   use: { ...devices['Desktop Safari'] } },
-    { name: 'edge',     use: { ...devices['Desktop Edge'] } },
+    // { name: 'firefox',  use: { ...devices['Desktop Firefox'] } },
+    // { name: 'safari',   use: { ...devices['Desktop Safari'] } },
+    // { name: 'edge',     use: { ...devices['Desktop Edge'] } },
 
     // Mobile
-    { name: 'mobile-chrome',     use: { ...devices['Pixel 5'] } },
+    // { name: 'mobile-chrome',     use: { ...devices['Pixel 5'] } },
     { name: 'mobile-safari',     use: { ...devices['iPhone 13'] } },
-    { name: 'mobile-iphone-se',  use: { ...devices['iPhone SE'] } },
+    // { name: 'mobile-iphone-se',  use: { ...devices['iPhone SE'] } },
     { name: 'mobile-galaxy',     use: { ...devices['Galaxy S9+'] } },
   ],
 });
