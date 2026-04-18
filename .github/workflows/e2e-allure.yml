@@ -1,14 +1,11 @@
-name: E2E Tests & Allure Report
+name: E2E Tests
 
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  workflow_dispatch: # 수동 실행 버튼
-
-permissions:
-  contents: write # gh-pages 브랜치에 push하기 위해 필요
+  workflow_dispatch:
 
 jobs:
   test:
@@ -30,44 +27,22 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Install Allure CLI
-        run: |
-          wget -q https://github.com/allure-framework/allure2/releases/download/2.29.0/allure-2.29.0.tgz
-          tar -zxf allure-2.29.0.tgz
-          sudo mv allure-2.29.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
-
-      # 이전 리포트의 history를 가져와서 트렌드 그래프를 유지
-      - name: Get previous Allure history
-        uses: actions/checkout@v4
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages-prev
-
-      - name: Copy previous history into allure-report
-        if: always()
-        continue-on-error: true
-        run: |
-          mkdir -p allure-report/history
-          cp -r gh-pages-prev/history/. allure-report/history/ 2>/dev/null || true
-
       - name: Run E2E tests
         run: npm test
-        continue-on-error: true # 테스트 실패해도 리포트는 생성
+        continue-on-error: true
         env:
           STAGING_LANDING_URL: ${{ secrets.STAGING_LANDING_URL }}
+          QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TESTOPS_API_TOKEN }}
+          QASE_TESTOPS_PROJECT: ${{ secrets.QASE_TESTOPS_PROJECT }}
+          KAKAO_EMAIL: ${{ secrets.KAKAO_EMAIL }}
+          KAKAO_PASSWORD: ${{ secrets.KAKAO_PASSWORD }}
+          TEST_PHONE_NUMBER: ${{ secrets.TEST_PHONE_NUMBER }}
+          TEST_PHONE_CODE: ${{ secrets.TEST_PHONE_CODE }}
 
-      - name: Generate Allure report
+      - name: Upload Playwright report
         if: always()
-        run: npm run allure:report
-
-      - name: Deploy Allure report to GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
-          publish_branch: gh-pages
-          destination_dir: .
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14

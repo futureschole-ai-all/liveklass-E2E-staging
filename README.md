@@ -1,9 +1,9 @@
 # liveklass E2E Testing (Staging)
 
-Playwright + Allure 기반 E2E 테스트 프로젝트입니다.
-테스트 결과는 GitHub Pages를 통해 자동으로 웹으로 배포됩니다.
+Playwright + Qase 기반 E2E 테스트 프로젝트입니다.
+테스트 결과는 Qase에 자동으로 업로드되어 관리됩니다.
 
-**Allure 리포트:** https://futureschole-ai-all.github.io/liveklass-E2E-staging/
+**Qase 대시보드:** https://app.qase.io
 
 ---
 
@@ -12,10 +12,8 @@ Playwright + Allure 기반 E2E 테스트 프로젝트입니다.
 | 도구 | 용도 |
 |------|------|
 | [Playwright](https://playwright.dev) | E2E 테스트 실행 |
-| [Allure](https://allurereport.org) | 테스트 결과 리포트 시각화 |
 | [Qase](https://qase.io) | 테스트 케이스 관리 및 결과 트래킹 |
 | GitHub Actions | CI 자동화 |
-| GitHub Pages | Allure 리포트 웹 배포 |
 
 ---
 
@@ -23,7 +21,6 @@ Playwright + Allure 기반 E2E 테스트 프로젝트입니다.
 
 ### 사전 요구사항
 - Node.js 20 이상
-- Allure CLI ([설치 가이드](https://allurereport.org/docs/install/))
 
 ### 설치
 
@@ -72,12 +69,6 @@ npm run test:headed -- tests/signup-kakao.spec.ts
 
 # UI 모드로 실행 (테스트 선택 및 타임라인 확인)
 npm run test:ui
-
-# Allure 리포트 생성
-npm run allure:report
-
-# Allure 리포트 로컬에서 열기
-npm run allure:open
 ```
 
 ---
@@ -118,15 +109,11 @@ Playwright 테스트 실행 (3개 브라우저: Chrome, iPhone 13, Galaxy S9+)
       ↓
 테스트 결과 Qase에 자동 업로드 (Test Run 생성)
       ↓
-Allure 리포트 생성
-      ↓
-gh-pages 브랜치에 배포
-      ↓
-GitHub Pages에서 Allure 리포트 확인 가능
+실패 시 Playwright 리포트를 GitHub Actions 아티팩트로 보관 (14일)
 ```
 
 push 하면 자동으로 위 과정이 실행됩니다.
-수동 실행은 GitHub → Actions → **E2E Tests & Allure Report** → **Run workflow**
+수동 실행은 GitHub → Actions → **E2E Tests** → **Run workflow**
 
 ---
 

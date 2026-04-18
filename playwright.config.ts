@@ -7,7 +7,6 @@ export default defineConfig({
   retries: 1,
   reporter: [
     ['html', { open: 'never' }],
-    ['allure-playwright'],
     ['playwright-qase-reporter', {
       mode: 'testops',
       testops: {
