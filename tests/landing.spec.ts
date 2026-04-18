@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('랜딩 페이지 - 주요 버튼 노출', () => {
   test('[로그인] 버튼이 보인다', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('');
 
     // 모바일 뷰포트(768px 미만)에서는 햄버거 메뉴를 열어야 로그인 버튼이 노출됨
     const viewportWidth = page.viewportSize()?.width ?? 1280;
@@ -17,7 +17,7 @@ test.describe('랜딩 페이지 - 주요 버튼 노출', () => {
   });
 
   test('[무료로 시작하기] 버튼이 보인다', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('');
     const startBtn = page.getByRole('link', { name: /무료로 시작하기/ }).or(
       page.getByRole('button', { name: /무료로 시작하기/ })
     );

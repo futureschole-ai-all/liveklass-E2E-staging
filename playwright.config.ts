@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
 
 export default defineConfig({
   testDir: './tests',
@@ -7,10 +8,19 @@ export default defineConfig({
   reporter: [
     ['html', { open: 'never' }],
     ['allure-playwright'],
+    ['playwright-qase-reporter', {
+      mode: 'testops',
+      testops: {
+        api: { token: process.env.QASE_TESTOPS_API_TOKEN },
+        project: process.env.QASE_TESTOPS_PROJECT,
+        run: { complete: true },
+      },
+    }],
   ],
   outputDir: './test-results',
   use: {
     baseURL: process.env.STAGING_LANDING_URL,
+    locale: 'ko-KR',
     trace: 'retain-on-failure',
     headless: true,
     screenshot: 'only-on-failure',
