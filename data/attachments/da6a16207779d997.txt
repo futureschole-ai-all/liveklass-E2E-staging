@@ -1,0 +1,1 @@
+이동된 URL: https://sso.liveklass.com/createaccount?query=%7B%22next%22%3A%22%252Fcreate_site%252Flist%252F%253FcontentTypeCd%253D06%22%7D
