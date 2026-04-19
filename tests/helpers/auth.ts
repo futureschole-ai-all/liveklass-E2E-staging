@@ -2,22 +2,11 @@ import { Page } from '@playwright/test';
 
 /**
  * 사용 가능한 Qase precondition 태그:
- *   [로그아웃 상태]           → ensureLoggedOut()
+ *   [로그아웃 상태]           → 주석만 추가 (Playwright는 매 테스트마다 새 컨텍스트로 시작하므로 항상 보장됨)
  *   [로그인 상태]             → ensureLoggedIn()
  *   [카카오 로그인 상태]      → ensureKakaoLoggedIn()
  *   [크리에이터 계정 로그인]  → ensureCreatorLoggedIn()
  */
-
-export async function ensureLoggedOut(page: Page) {
-  await page.goto('');
-  const userMenu = page.locator('[aria-label*="내 계정"], [aria-label*="프로필"], [data-testid="user-menu"]').first();
-  if (await userMenu.isVisible({ timeout: 3000 }).catch(() => false)) {
-    await userMenu.click();
-    const logoutBtn = page.getByRole('button', { name: /로그아웃/ }).or(page.getByRole('link', { name: /로그아웃/ }));
-    await logoutBtn.first().click();
-    await page.waitForLoadState('networkidle');
-  }
-}
 
 export async function ensureLoggedIn(page: Page) {
   await page.goto('');

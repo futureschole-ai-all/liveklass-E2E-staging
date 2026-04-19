@@ -45,12 +45,12 @@ curl -s -X GET "https://api.qase.io/v1/case/{PROJECT}/{CASE_ID}" \
 `preconditions` 텍스트에서 `[태그]` 형식의 키워드를 추출해줘.
 아래 매핑 테이블을 참고해서 대응하는 helper 함수를 import하고 테스트 시작 전에 호출해줘.
 
-| Qase precondition 태그 | helper 함수 | import 경로 |
+| Qase precondition 태그 | 처리 방식 | 비고 |
 |---|---|---|
-| `[로그아웃 상태]` | `ensureLoggedOut(page)` | `./helpers/auth` |
-| `[로그인 상태]` | `ensureLoggedIn(page)` | `./helpers/auth` |
-| `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` | `./helpers/auth` |
-| `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` | `./helpers/auth` |
+| `[로그아웃 상태]` | 주석만 추가, 코드 없음 | Playwright는 매 테스트마다 새 컨텍스트로 시작하므로 항상 보장됨 |
+| `[로그인 상태]` | `ensureLoggedIn(page)` 호출 | `./helpers/auth` |
+| `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` 호출 | `./helpers/auth` |
+| `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` 호출 | `./helpers/auth` |
 
 - 태그가 매핑 테이블에 없으면 새 helper 함수를 `tests/helpers/auth.ts`에 추가하고 매핑 테이블도 업데이트해줘.
 - 사전 조건이 없으면 helper import/호출을 생략해줘.
