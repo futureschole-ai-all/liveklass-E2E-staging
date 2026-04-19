@@ -59,4 +59,9 @@ test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱
   // Expected: 회원가입 완료 - 가입한 이메일로 인증된 사용자 확인
   const meBody = await meResponse.json();
   expect(meBody.user.userId).toBe(testEmail);
+
+  // Step 10: 회원가입 완료 페이지 내 [회원가입 완료] 버튼 선택
+  await page.getByRole('button', { name: /회원가입 완료/ }).or(page.getByRole('link', { name: /회원가입 완료/ })).first().click();
+  // Expected: 고객사 사이트 메인 페이지로 이동
+  await expect(page).toHaveURL(process.env.STAGING_SITE_URL_E0P0K0!);
 });
