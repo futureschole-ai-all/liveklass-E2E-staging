@@ -187,6 +187,22 @@ Qase 업로드 없이 로컬에서만 테스트하려면 `.env`에서 `QASE_TEST
 
 ---
 
+## Qase Precondition 태그 목록
+
+Qase 테스트 케이스의 **Preconditions** 필드에 아래 태그를 사용하면,
+`/qase-to-e2e` 스킬이 자동으로 대응하는 helper 함수를 호출하는 스크립트를 생성합니다.
+
+| 태그 | 동작 | 비고 |
+|------|------|------|
+| `[로그아웃 상태]` | 주석만 추가, 코드 없음 | Playwright는 매 테스트마다 새 컨텍스트로 시작하므로 항상 보장됨 |
+| `[로그인 상태]` | `ensureLoggedIn(page)` 호출 | `TEST_EMAIL`, `TEST_PASSWORD` 환경변수 필요 |
+| `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` 호출 | `KAKAO_EMAIL`, `KAKAO_PASSWORD` 환경변수 필요 |
+| `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` 호출 | `TEST_EMAIL`, `TEST_PASSWORD` 환경변수 필요 |
+
+> 새로운 사전 조건이 필요하면 `tests/helpers/auth.ts`에 함수를 추가하고 이 표에도 태그를 등록해주세요.
+
+---
+
 ## 새 테스트 시나리오 추가 방법
 
 1. `tests/` 디렉토리에 `*.spec.ts` 파일 생성
