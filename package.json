@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "test:creator": "QASE_TESTOPS_PROJECT=RTC playwright test tests/creator/",
+    "test:student": "QASE_TESTOPS_PROJECT=RTS playwright test tests/student/",
     "test:headed": "playwright test --headed --project=chromium --retries=0",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report"

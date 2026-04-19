@@ -3,12 +3,12 @@ import { qase } from 'playwright-qase-reporter';
 
 // 필요한 환경변수: STAGING_SITE_URL_E0P0K0, TEST_PASSWORD
 
-test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱크 OFF 고객사 사이트 - 신규 회원가입'), async ({ page }) => {
+test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱크 OFF 고객사 사이트 - 신규 회원가입'), async ({ page }, testInfo) => {
   // 사전 조건: 로그아웃 상태 (Playwright 새 컨텍스트로 항상 보장됨)
 
   const now = new Date();
   const dateStr = now.toISOString().slice(2, 16).replace(/[-T:]/g, ''); // YYMMDDHHmm (예: 2604191045)
-  const testEmail = `jerry.yoon+test${dateStr}@liveklass.com`;
+  const testEmail = `jerry.yoon+test${dateStr}-${testInfo.project.name}@liveklass.com`;
 
   // Step 1: STAGING_SITE_URL_E0P0K0 고객사 사이트 접속
   await page.goto(process.env.STAGING_SITE_URL_E0P0K0!);
@@ -16,7 +16,11 @@ test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱
   await expect(page).toHaveURL(process.env.STAGING_SITE_URL_E0P0K0!);
 
   // Step 2: 사이트 헤더 내 [회원가입] 버튼 선택
-  await page.locator('.lk-btn', { hasText: '회원가입' }).first().click();
+  const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+  if (isMobile) {
+    await page.locator('header button').first().click(); // 햄버거 메뉴 열기
+  }
+  await page.locator('.lk-btn:visible', { hasText: /회원\s*가입/ }).click();
   // Expected: 라이브 클래스 로그인 페이지로 이동
   await page.waitForURL(/\/login/);
 
