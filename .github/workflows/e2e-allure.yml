@@ -28,6 +28,14 @@ jobs:
         continue-on-error: true
         env:
           STAGING_LANDING_URL: ${{ secrets.STAGING_LANDING_URL }}
+          STAGING_SITE_URL_E1P1K1: ${{ secrets.STAGING_SITE_URL_E1P1K1 }}
+          STAGING_SITE_URL_E1P1K0: ${{ secrets.STAGING_SITE_URL_E1P1K0 }}
+          STAGING_SITE_URL_E1P0K1: ${{ secrets.STAGING_SITE_URL_E1P0K1 }}
+          STAGING_SITE_URL_E1P0K0: ${{ secrets.STAGING_SITE_URL_E1P0K0 }}
+          STAGING_SITE_URL_E0P1K1: ${{ secrets.STAGING_SITE_URL_E0P1K1 }}
+          STAGING_SITE_URL_E0P1K0: ${{ secrets.STAGING_SITE_URL_E0P1K0 }}
+          STAGING_SITE_URL_E0P0K1: ${{ secrets.STAGING_SITE_URL_E0P0K1 }}
+          STAGING_SITE_URL_E0P0K0: ${{ secrets.STAGING_SITE_URL_E0P0K0 }}
           QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TESTOPS_API_TOKEN }}
           QASE_TESTOPS_PROJECT: ${{ secrets.QASE_TESTOPS_PROJECT }}
           KAKAO_EMAIL: ${{ secrets.KAKAO_EMAIL }}
