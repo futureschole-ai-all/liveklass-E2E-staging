@@ -1,4 +1,4 @@
-name: E2E Tests
+name: E2E Tests - Student (RTS)
 
 on:
   workflow_dispatch:
@@ -23,17 +23,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run creator E2E tests (RTC)
-        run: npm run test:creator
-        continue-on-error: true
-        env:
-          STAGING_LANDING_URL: ${{ secrets.STAGING_LANDING_URL }}
-          QASE_TESTOPS_API_TOKEN: ${{ secrets.QASE_TESTOPS_API_TOKEN }}
-          KAKAO_EMAIL: ${{ secrets.KAKAO_EMAIL }}
-          KAKAO_PASSWORD: ${{ secrets.KAKAO_PASSWORD }}
-          TEST_PHONE_NUMBER: ${{ secrets.TEST_PHONE_NUMBER }}
-          TEST_PHONE_CODE: ${{ secrets.TEST_PHONE_CODE }}
-
       - name: Run student E2E tests (RTS)
         run: npm run test:student
         continue-on-error: true
@@ -53,6 +42,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: playwright-report-student
           path: playwright-report/
           retention-days: 14
