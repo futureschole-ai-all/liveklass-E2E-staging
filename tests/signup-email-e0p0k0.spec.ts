@@ -6,7 +6,8 @@ import { qase } from 'playwright-qase-reporter';
 test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱크 OFF 고객사 사이트 - 신규 회원가입'), async ({ page }) => {
   // 사전 조건: 로그아웃 상태 (Playwright 새 컨텍스트로 항상 보장됨)
 
-  const dateStr = new Date().toISOString().slice(2, 10).replace(/-/g, ''); // YYMMDD (예: 260419)
+  const now = new Date();
+  const dateStr = now.toISOString().slice(2, 16).replace(/[-T:]/g, ''); // YYMMDDHHmm (예: 2604191045)
   const testEmail = `jerry.yoon+test${dateStr}@liveklass.com`;
 
   // Step 1: STAGING_SITE_URL_E0P0K0 고객사 사이트 접속
@@ -49,7 +50,13 @@ test(qase(1, '휴대폰 번호 인증 OFF & 이메일 인증 OFF & 카카오 싱
   await expect(signupBtn).toBeEnabled();
 
   // Step 9: 활성화 상태의 [회원가입] 버튼 선택
-  await signupBtn.click();
-  // Expected: 회원가입 완료 페이지로 이동
-  await page.waitForLoadState('networkidle');
+  const [meResponse] = await Promise.all([
+    page.waitForResponse(res =>
+      res.url().includes('/v1.0/auth/me') && res.status() === 200
+    ),
+    signupBtn.click(),
+  ]);
+  // Expected: 회원가입 완료 - 가입한 이메일로 인증된 사용자 확인
+  const meBody = await meResponse.json();
+  expect(meBody.user.userId).toBe(testEmail);
 });
