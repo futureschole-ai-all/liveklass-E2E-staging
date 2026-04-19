@@ -36,6 +36,15 @@
 
 > 수강생 테스트 작성 시 어떤 설정 조합의 사이트인지 확인하고 해당 환경변수를 사용.
 
+## Qase 프로젝트 구조
+
+| 프로젝트 코드 | 이름 | 대상 |
+|---|---|---|
+| `RTC` | Regression Test - Creator | 크리에이터 회원가입/로그인, 사이트 개설 등 |
+| `RTS` | Regression Test - Student | 수강생 회원가입/로그인, 콘텐츠 소비 등 |
+
+> `QASE_TESTOPS_PROJECT` 환경변수를 실행할 테스트 대상에 맞게 `RTC` 또는 `RTS`로 설정.
+
 ## Precondition 태그 규칙
 
 Qase 테스트 케이스의 Preconditions 필드에 아래 태그를 사용.
