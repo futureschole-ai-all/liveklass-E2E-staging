@@ -91,8 +91,11 @@ npm run test:ui
 
 ```
 tests/
-  landing.spec.ts        # 랜딩 페이지 주요 버튼 노출 검증
-  signup-kakao.spec.ts   # 카카오 소셜 회원가입 플로우 (Qase ID: 1)
+  creator/
+    landing.spec.ts          # 랜딩 페이지 주요 버튼 노출 검증
+    signup-kakao.spec.ts     # 카카오 소셜 회원가입 (RTC-1)
+  student/
+    signup-email-e0p0k0.spec.ts  # 이메일 회원가입 - 이메일OFF/휴대폰OFF/카카오OFF (RTS-1)
 ```
 
 각 테스트는 `qase(id, '테스트명')` 어노테이션으로 Qase 테스트 케이스와 연결됩니다.
