@@ -42,8 +42,10 @@ curl -s -X GET "https://api.qase.io/v1/case/{PROJECT}/{CASE_ID}" \
 
 ### 3. 사전 조건(Preconditions) 처리
 
-`preconditions` 텍스트에서 `[태그]` 형식의 키워드를 추출해줘.
-아래 매핑 테이블을 참고해서 대응하는 helper 함수를 import하고 테스트 시작 전에 호출해줘.
+`preconditions` 텍스트에서 `[태그]` 형식의 키워드를 **줄 단위로** 모두 추출해줘.
+태그가 여러 개면 작성된 순서대로 모두 처리해줘.
+
+아래 매핑 테이블을 참고해서 대응하는 helper 함수를 import하고 테스트 시작 전에 순서대로 호출해줘.
 
 | Qase precondition 태그 | 처리 방식 | 비고 |
 |---|---|---|
@@ -51,17 +53,19 @@ curl -s -X GET "https://api.qase.io/v1/case/{PROJECT}/{CASE_ID}" \
 | `[로그인 상태]` | `ensureLoggedIn(page)` 호출 | `./helpers/auth` |
 | `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` 호출 | `./helpers/auth` |
 | `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` 호출 | `./helpers/auth` |
+| `[튜토리얼 스킵]` | `skipTutorial(page)` 호출 | `./helpers/auth` |
 
 - 태그가 매핑 테이블에 없으면 새 helper 함수를 `tests/helpers/auth.ts`에 추가하고 매핑 테이블도 업데이트해줘.
 - 사전 조건이 없으면 helper import/호출을 생략해줘.
 
-**스크립트 예시 (사전 조건이 있는 경우):**
+**스크립트 예시 (사전 조건이 여러 개인 경우):**
 ```typescript
-import { ensureLoggedOut } from './helpers/auth';
+import { ensureCreatorLoggedIn, skipTutorial } from './helpers/auth';
 
 test(qase(2, '...'), async ({ page, context }) => {
   // 사전 조건
-  await ensureLoggedOut(page);
+  await ensureCreatorLoggedIn(page);
+  await skipTutorial(page);
 
   // Step 1: ...
 });
