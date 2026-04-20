@@ -41,7 +41,7 @@ export async function ensureCreatorLoggedIn(page: Page) {
   await page.locator('.lk-btn:visible', { hasText: /로그인/ }).click();
   await page.waitForLoadState('networkidle');
   await page.fill('input[type="email"]', process.env.CREATOR_EMAIL!);
-  await page.fill('input[type="password"]', process.env.CREATOR_PASSWORD!);
+  await page.fill('input[type="password"]', process.env.TEST_PASSWORD!);
   await page.getByRole('button', { name: /로그인/, exact: true }).click();
   await page.waitForLoadState('networkidle');
 }
