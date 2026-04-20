@@ -33,6 +33,9 @@ jobs:
           KAKAO_PASSWORD: ${{ secrets.KAKAO_PASSWORD }}
           TEST_PHONE_NUMBER: ${{ secrets.TEST_PHONE_NUMBER }}
           TEST_PHONE_CODE: ${{ secrets.TEST_PHONE_CODE }}
+          CREATOR_TEST_SITE_URL: ${{ secrets.CREATOR_TEST_SITE_URL }}
+          CREATOR_EMAIL: ${{ secrets.CREATOR_EMAIL }}
+          CREATOR_PASSWORD: ${{ secrets.CREATOR_PASSWORD }}
 
       - name: Upload Playwright report
         if: always()

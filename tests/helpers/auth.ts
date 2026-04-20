@@ -37,5 +37,11 @@ export async function ensureKakaoLoggedIn(page: Page) {
 }
 
 export async function ensureCreatorLoggedIn(page: Page) {
-  await ensureLoggedIn(page);
+  await page.goto(process.env.CREATOR_TEST_SITE_URL!);
+  await page.locator('.lk-btn:visible', { hasText: /로그인/ }).click();
+  await page.waitForLoadState('networkidle');
+  await page.fill('input[type="email"]', process.env.CREATOR_EMAIL!);
+  await page.fill('input[type="password"]', process.env.CREATOR_PASSWORD!);
+  await page.getByRole('button', { name: /로그인/, exact: true }).click();
+  await page.waitForLoadState('networkidle');
 }
