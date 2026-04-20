@@ -6,6 +6,7 @@ import { Page } from '@playwright/test';
  *   [로그인 상태]             → ensureLoggedIn()
  *   [카카오 로그인 상태]      → ensureKakaoLoggedIn()
  *   [크리에이터 계정 로그인]  → ensureCreatorLoggedIn()
+ *   [튜토리얼 스킵]           → skipTutorial()
  */
 
 export async function ensureLoggedIn(page: Page) {
@@ -34,6 +35,12 @@ export async function ensureKakaoLoggedIn(page: Page) {
   await page.fill('input[name="password"]', process.env.KAKAO_PASSWORD!);
   await page.getByRole('button', { name: '로그인', exact: true }).click();
   await page.waitForLoadState('networkidle');
+}
+
+export async function skipTutorial(page: Page) {
+  await page.addInitScript(() => {
+    localStorage.setItem('isTutorial', 'true');
+  });
 }
 
 export async function ensureCreatorLoggedIn(page: Page) {
