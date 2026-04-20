@@ -53,7 +53,7 @@ curl -s -X GET "https://api.qase.io/v1/case/{PROJECT}/{CASE_ID}" \
 | `[로그인 상태]` | `ensureLoggedIn(page)` 호출 | `./helpers/auth` |
 | `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` 호출 | `./helpers/auth` |
 | `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` 호출 | `./helpers/auth` |
-| `[튜토리얼 스킵]` | `skipTutorial(page)` 호출 | `./helpers/auth` |
+| `[상품 생성 튜토리얼 스킵]` | `skipTutorial(page)` 호출 | `./helpers/auth` |
 
 - 태그가 매핑 테이블에 없으면 새 helper 함수를 `tests/helpers/auth.ts`에 추가하고 매핑 테이블도 업데이트해줘.
 - 사전 조건이 없으면 helper import/호출을 생략해줘.

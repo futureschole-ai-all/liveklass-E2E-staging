@@ -56,6 +56,6 @@ Qase 테스트 케이스의 Preconditions 필드에 아래 태그를 사용.
 | `[로그인 상태]` | `ensureLoggedIn(page)` 호출 |
 | `[카카오 로그인 상태]` | `ensureKakaoLoggedIn(page)` 호출 |
 | `[크리에이터 계정 로그인]` | `ensureCreatorLoggedIn(page)` 호출 |
-| `[튜토리얼 스킵]` | `skipTutorial(page)` 호출 |
+| `[상품 생성 튜토리얼 스킵]` | `skipTutorial(page)` 호출 |
 
 > 새 태그가 필요하면 `tests/helpers/auth.ts`에 함수를 추가하고 이 표에도 등록.

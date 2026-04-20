@@ -6,7 +6,7 @@ import { Page } from '@playwright/test';
  *   [로그인 상태]             → ensureLoggedIn()
  *   [카카오 로그인 상태]      → ensureKakaoLoggedIn()
  *   [크리에이터 계정 로그인]  → ensureCreatorLoggedIn()
- *   [튜토리얼 스킵]           → skipTutorial()
+ *   [상품 생성 튜토리얼 스킵]  → skipTutorial()
  */
 
 export async function ensureLoggedIn(page: Page) {
